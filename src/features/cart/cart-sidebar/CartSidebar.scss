@@ -1,0 +1,90 @@
+@import "../../../scss/mixins";
+@import "../../../scss/variables";
+
+.cart-sidebar {
+  @include flex-col(2.4rem);
+  width: 45rem;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  right: 0;
+  background-color: $color-white;
+  z-index: 1;
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+
+  transform: translateX(100%);
+  transition: all 0.4s;
+  padding: 2.4rem 1.8rem;
+
+  @include media($sm) {
+    width: 36rem;
+  }
+
+  // FOR CART SIDEBAR
+  &--active {
+    transform: translateX(0);
+  }
+
+  &__header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+  }
+
+  &__back {
+    cursor: pointer;
+  }
+
+  &__heading {
+    text-align: center;
+    font-size: 1.1rem;
+    text-transform: uppercase;
+    color: $color-primary-light;
+  }
+
+  &__empty {
+    @include flex-col(3rem);
+    text-align: center;
+    padding: 0 2.4rem;
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+
+    p {
+      font-size: 1.4rem;
+      color: $color-primary;
+      line-height: 1.5;
+    }
+  }
+
+  &__footer {
+    margin-top: auto;
+    border-top: 2px solid $color-primary;
+    padding-top: 2rem;
+    color: $color-primary;
+    @include flex-col(2rem);
+    text-align: center;
+  }
+
+  &__quantity-box {
+    @include flex;
+    justify-content: space-between;
+    font-size: 1.3rem;
+    font-weight: $font-semibold;
+  }
+
+  &__link {
+    color: $color-primary;
+    font-size: 1.4rem;
+    transition: $main-transition;
+    border-bottom: 2px solid $color-secondary;
+    align-self: center;
+    padding: 4px;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+}

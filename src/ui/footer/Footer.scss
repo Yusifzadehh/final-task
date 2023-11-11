@@ -1,0 +1,114 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.footer {
+  background-color: $color-primary;
+
+  padding: 7.6rem 4.2rem 8rem;
+
+  &__wrap {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    row-gap: 6.4rem;
+
+    @include media($xl) {
+      grid-template-columns: 1fr;
+    }
+
+    a {
+      font-size: 1.3rem;
+      color: $color-white;
+      transition: $main-transition;
+    }
+  }
+
+  &__nav {
+    @include flex(6rem);
+    align-items: flex-start;
+
+    @include media($xl) {
+      justify-self: center;
+    }
+
+    @include media($md) {
+      @include flex-col(4.8rem);
+    }
+  }
+
+  &__list {
+    @include flex-col(2.4rem);
+  }
+
+  &__contact {
+    @include flex-col(1.6rem);
+  }
+
+  &__link {
+    font-size: 1.1rem !important;
+    text-transform: uppercase;
+    font-weight: $font-semibold;
+    letter-spacing: 0.157em;
+    color: $color-white;
+
+    &:hover {
+      color: $color-secondary;
+    }
+  }
+
+  &__mail,
+  &__social-link {
+    @include link-primary;
+  }
+
+  &__form {
+    justify-self: center;
+    @include flex-col(2.4rem);
+    position: relative;
+  }
+
+  &__input {
+    width: 30rem;
+    border-color: $color-white;
+
+    &::placeholder {
+      font-size: 1.3rem;
+    }
+  }
+
+  &__btn {
+    position: absolute;
+    right: 0;
+    top: 2rem;
+
+    border: 2px solid $color-secondary;
+    padding: 1px 20px;
+    border-radius: 10px;
+    cursor: pointer;
+  }
+
+  &__about-box {
+    @include flex(1.2rem);
+    flex-wrap: wrap;
+
+    @include media($xl) {
+      grid-area: 4;
+      justify-content: center;
+    }
+  }
+
+  &__about-link {
+    font-size: 1.1rem !important;
+    color: #69a49f !important;
+    @include flex(0.8rem);
+    font-weight: $font-semibold;
+
+    &:hover {
+      color: $color-white !important;
+    }
+  }
+
+  &__social-box {
+    justify-self: center;
+    @include flex(1.2rem);
+  }
+}
